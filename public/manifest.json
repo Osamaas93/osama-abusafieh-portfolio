@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/osama-abusafieh-portfolio/static/css/main.9e05fc59.css",
+    "main.js": "/osama-abusafieh-portfolio/static/js/main.cfb3cfa2.js",
+    "index.html": "/osama-abusafieh-portfolio/index.html",
+    "main.9e05fc59.css.map": "/osama-abusafieh-portfolio/static/css/main.9e05fc59.css.map",
+    "main.cfb3cfa2.js.map": "/osama-abusafieh-portfolio/static/js/main.cfb3cfa2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e05fc59.css",
+    "static/js/main.cfb3cfa2.js"
+  ]
+}
