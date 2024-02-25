@@ -1,112 +1,101 @@
-import { Box, Button, Grid } from "@mui/material";
+import React from "react";
+import { Box, Button, Container, Grid } from "@mui/material";
 import styled from "styled-components";
 import { myInformation } from "../utls/myInfotmation";
 
-const Img = styled("img")`
-  && {
-    margin: auto;
-    display: block;
-    max-width: 400px;
-    max-height: 100%;
-    @media (max-width: 700px) {
-      max-width: 300px;
-    }
-  }
-`;
-
-const ImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const ImgBackground = styled.div`
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  width: 430px;
-  height: 430px;
-  border-radius: 528px;
-  background: #444;
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.8);
+const CustomGrid = styled.div`
   @media (max-width: 700px) {
-    width: 325px;
-    height: 325px;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 2rem;
-  color: var(--brandSecondary);
-  font-weight: 700;
-  @media (max-width: 700px) {
-    font-size: 1.5rem;
     text-align: center;
   }
-`;
-
-const Description = styled.h4`
-  font-size: 1.2rem;
-  color: var(--bodyText);
-  font-weight: 500;
-  @media (max-width: 700px) {
-    font-size: 1rem;
-    text-align: center;
-  }
-`;
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  padding-block: 50px;
-  padding: 50px 20px;
 `;
 
 const FrontendDevelopment = () => {
   return (
-    <Container>
-      <Box position="relative">
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={5}>
-            <ImgContainer>
-              <ImgBackground>
-                <Img
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "calc(100vh - 64px - 64px)", // Adjust according to your header and footer height
+      }}
+    >
+      <Container>
+        <Box
+          sx={{
+            padding: "20px 20px 100px 20px",
+          }}
+        >
+          <Grid container spacing={3}>
+            <Grid item xs={12} lg={5}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                sx={{
+                  border: "12px solid  #444",
+                  boxShadow: "0px 0px 50px 0px rgba(0, 0, 0, 0.8)",
+                  borderRadius: "999px",
+                }}
+              >
+                <img
                   alt="complex"
                   src={`${process.env.PUBLIC_URL}/assets/frontend-img.png`}
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                  }}
                 />
-              </ImgBackground>
-            </ImgContainer>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            lg={7}
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center" // Center the content vertically
-          >
-            <Grid item>
-              <Title>{myInformation.frontend.title}</Title>
-              <Description>{myInformation.frontend.description}</Description>
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              lg={7}
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center" // Center the content vertically
+            >
+              <Grid item>
+                <CustomGrid>
+                  <h2
+                    style={{
+                      fontSize: "2rem",
+                      color: "var(--brandSecondary)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {myInformation.frontend.title}
+                  </h2>
+                  <h4
+                    style={{
+                      fontSize: "1.2rem",
+                      color: "var(--bodyText)",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {myInformation.frontend.description}
+                  </h4>
 
-              <Button
-                variant="contained"
-                sx={{ mt: 3, mb: 2, mr: 3, background: "#00B4CC" }}
-              >
-                Experiance
-              </Button>
-              <Button
-                variant="contained"
-                sx={{ mt: 3, mb: 2, background: "#00B4CC" }}
-              >
-                Porfolio
-              </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, mr: 3, background: "#00B4CC" }}
+                  >
+                    Experience
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, background: "#00B4CC" }}
+                  >
+                    Portfolio
+                  </Button>
+                </CustomGrid>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Box>
-    </Container>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

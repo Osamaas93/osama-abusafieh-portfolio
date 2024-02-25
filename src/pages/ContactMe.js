@@ -10,12 +10,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import TextField from "@mui/material/TextField";
 
 const CustomContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
   padding-block: 50px;
-  padding: 50px 20px;
+  padding: 20px 20px 100px 20px;
 `;
 
 const CustomTextField = styled(TextField)`

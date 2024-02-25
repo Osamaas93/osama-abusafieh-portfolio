@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavBar from "../components/NavBar";
 import DropDownMenu from "../components/DropDownMenu";
+import { Link } from "react-router-dom";
 
 const CustomBox = styled(Box)`
   && {
@@ -25,6 +26,11 @@ const CustomButton = styled(Button)`
   }
 `;
 
+const CustomImgLink = styled(Link)`
+  display: flex;
+  cursor: pointer;
+  text-decoration: none; /* Remove default link underline */
+`;
 const CustomImg = styled.img`
   width: 33px;
 `;
@@ -47,7 +53,12 @@ const Header = () => {
 
   return (
     <Stack direction="row" spacing={2} justifyContent="center" my={3}>
-      <CustomImg src={`${process.env.PUBLIC_URL}/assets/html.png`} alt="awd" />
+      <CustomImgLink to="/">
+        <CustomImg
+          src={`${process.env.PUBLIC_URL}/assets/html.png`}
+          alt="awd"
+        />
+      </CustomImgLink>
 
       {isSmallScreen ? (
         <>

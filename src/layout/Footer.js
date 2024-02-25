@@ -16,6 +16,12 @@ const FooterContainer = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  display: flex;
+  aligh-items: center;
+  justify-content: center;
+
+  color: var(--bodyText);
+  z-index: 0;
   width: 100%;
   padding: 5px 0;
   background: var(--bgDefault);

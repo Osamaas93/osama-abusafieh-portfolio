@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const Layout = () => {
   return (
-    <>
+    <div>
       <Header />
 
       <main>
@@ -12,7 +12,7 @@ const Layout = () => {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 };
 
