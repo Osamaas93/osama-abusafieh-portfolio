@@ -1,22 +1,17 @@
 import styled from "styled-components";
-import { myInformation } from "../utls/myInfotmation";
-import InformationPage from "./InformationPage";
+import FrontendDevelopment from "./FrontendDevelopment";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-  padding: 30px;
-  ${"" /*   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.8); */}
+  padding-block: 50px;
+  padding: 50px 20px;
 `;
 
 const Home = () => {
-  return (
-    <Container>
-      <InformationPage />
-    </Container>
-  );
+  return <FrontendDevelopment />;
 };
 
 export default Home;

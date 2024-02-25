@@ -17,13 +17,14 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px 0;
+  padding: 5px 0;
+  background: var(--bgDefault);
 `;
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <Stack direction="row" spacing={2} justifyContent="center" my={3}>
+      <Stack direction="row" spacing={1} justifyContent="center" my={2}>
         <CustomButton
           component="a"
           href="https://www.linkedin.com/in/osamaabusafieh/"
@@ -39,12 +40,7 @@ const Footer = () => {
             alt="Instagram Logo"
           />
         </CustomButton>
-        <CustomButton component="a" href="https://www.facebook.com/osamaas93">
-          <CustomImg
-            src={`${process.env.PUBLIC_URL}/assets/facebook.png`}
-            alt="Facebook Logo"
-          />
-        </CustomButton>
+
         <CustomButton
           component="a"
           href="https://www.youtube.com/@Osamaabusafieh?si=Xp8fo8obNZ1JWWse"

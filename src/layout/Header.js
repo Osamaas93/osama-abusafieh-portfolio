@@ -1,24 +1,10 @@
 import { Button, ButtonGroup, Stack } from "@mui/material";
 import styled from "styled-components";
-import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
-import MenuList from "@mui/material/MenuList";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-
-const CustomButton = styled(Button)`
-  && {
-    position: relative;
-    color: var(--brandPrimary);
-    font-weight: 600;
-    /* Define styles for gutterBottom transient prop */
-    margin-bottom: ${(props) => (props.$gutterBottom ? "8px" : "0")};
-  }
-`;
+import NavBar from "../components/NavBar";
+import DropDownMenu from "../components/DropDownMenu";
 
 const CustomBox = styled(Box)`
   && {
@@ -26,15 +12,19 @@ const CustomBox = styled(Box)`
     top: 65px;
     background: var(--bgDefault);
     border-radius: 8px;
+    z-index: 1;
   }
 `;
 
-const ResumeButton = styled(MenuItem)`
+const CustomButton = styled(Button)`
   && {
-    color: var(--brandSecondary);
+    position: relative;
+    color: var(--brandPrimary);
     font-weight: 600;
+    margin-bottom: ${(props) => (props.$gutterBottom ? "8px" : "0")};
   }
 `;
+
 const CustomImg = styled.img`
   width: 33px;
 `;
@@ -65,39 +55,13 @@ const Header = () => {
             <MenuIcon />
           </CustomButton>
           {open && (
-            <CustomBox>
-              <MenuList dense>
-                <MenuItem>
-                  <ListItemText>Frontend Development</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText>Music Production</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText>Contact Me</ListItemText>
-                </MenuItem>
-                <ResumeButton
-                  component="a"
-                  href="https://drive.google.com/file/d/1_Zqm_A46HNvBCaIsFt2CXGMKRJrKhNro/view?usp=sharing"
-                >
-                  Download Resume
-                </ResumeButton>
-              </MenuList>
+            <CustomBox onClick={() => setOpen(!open)}>
+              <DropDownMenu />
             </CustomBox>
           )}
         </>
       ) : (
-        <ButtonGroup variant="text" aria-label="button group">
-          <CustomButton>Frontend Development</CustomButton>
-          <CustomButton>Music Production</CustomButton>
-          <CustomButton>Contact Me</CustomButton>
-          <ResumeButton
-            component="a"
-            href="https://drive.google.com/file/d/1_Zqm_A46HNvBCaIsFt2CXGMKRJrKhNro/view?usp=sharing"
-          >
-            Download Resume
-          </ResumeButton>
-        </ButtonGroup>
+        <NavBar />
       )}
     </Stack>
   );
