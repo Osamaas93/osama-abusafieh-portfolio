@@ -25,6 +25,8 @@ const DropDownMenu = () => {
   return (
     <MenuList dense>
       <CustomMenuItem
+        component={Link}
+        to="/"
         onClick={() =>
           updateSelectedContent(
             myInformation.frontend.title,
@@ -37,6 +39,8 @@ const DropDownMenu = () => {
         <ListItemText>Frontend Development</ListItemText>
       </CustomMenuItem>
       <CustomMenuItem
+        component={Link}
+        to="/"
         onClick={() =>
           updateSelectedContent(
             myInformation.music.title,

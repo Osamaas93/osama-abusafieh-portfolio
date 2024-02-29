@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/osama-abusafieh-portfolio/static/css/main.9e05fc59.css",
-    "main.js": "/osama-abusafieh-portfolio/static/js/main.f7bb9ca1.js",
+    "main.css": "/osama-abusafieh-portfolio/static/css/main.940810d7.css",
+    "main.js": "/osama-abusafieh-portfolio/static/js/main.32eb9711.js",
     "index.html": "/osama-abusafieh-portfolio/index.html",
-    "main.9e05fc59.css.map": "/osama-abusafieh-portfolio/static/css/main.9e05fc59.css.map",
-    "main.f7bb9ca1.js.map": "/osama-abusafieh-portfolio/static/js/main.f7bb9ca1.js.map"
+    "main.940810d7.css.map": "/osama-abusafieh-portfolio/static/css/main.940810d7.css.map",
+    "main.32eb9711.js.map": "/osama-abusafieh-portfolio/static/js/main.32eb9711.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e05fc59.css",
-    "static/js/main.f7bb9ca1.js"
+    "static/css/main.940810d7.css",
+    "static/js/main.32eb9711.js"
   ]
 }
