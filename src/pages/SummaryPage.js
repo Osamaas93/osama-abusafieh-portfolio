@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Container, Grid } from "@mui/material";
 import styled from "styled-components";
-import { myInformation } from "../utls/myInfotmation";
+import useSelectedContent from "./context/context";
 
 const CustomGrid = styled.div`
   @media (max-width: 700px) {
@@ -10,6 +10,7 @@ const CustomGrid = styled.div`
 `;
 
 const FrontendDevelopment = () => {
+  const { selectedContent } = useSelectedContent();
   return (
     <Box
       sx={{
@@ -39,7 +40,7 @@ const FrontendDevelopment = () => {
               >
                 <img
                   alt="complex"
-                  src={`${process.env.PUBLIC_URL}/assets/frontend-img.png`}
+                  src={`${selectedContent.image}`}
                   style={{
                     maxWidth: "100%",
                     maxHeight: "100%",
@@ -54,7 +55,7 @@ const FrontendDevelopment = () => {
               container
               direction="column"
               justifyContent="center"
-              alignItems="center" // Center the content vertically
+              alignItems="center"
             >
               <Grid item>
                 <CustomGrid>
@@ -65,7 +66,7 @@ const FrontendDevelopment = () => {
                       fontWeight: 700,
                     }}
                   >
-                    {myInformation.frontend.title}
+                    {selectedContent.title}
                   </h2>
                   <h4
                     style={{
@@ -74,18 +75,31 @@ const FrontendDevelopment = () => {
                       fontWeight: 500,
                     }}
                   >
-                    {myInformation.frontend.description}
+                    {selectedContent.description}
                   </h4>
 
                   <Button
                     variant="contained"
-                    sx={{ mt: 3, mb: 2, mr: 3, background: "#00B4CC" }}
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      mr: 3,
+                      background: "#d96c06",
+                      "&:focus": { backgroundColor: "#bdbf09" },
+                    }}
+                    id={selectedContent.id}
                   >
                     Experience
                   </Button>
                   <Button
                     variant="contained"
-                    sx={{ mt: 3, mb: 2, background: "#00B4CC" }}
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      background: "#d96c06",
+                      "&:focus": { backgroundColor: "#bdbf09" },
+                    }}
+                    id={selectedContent.id}
                   >
                     Portfolio
                   </Button>

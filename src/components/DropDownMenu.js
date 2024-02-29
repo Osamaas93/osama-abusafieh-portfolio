@@ -3,6 +3,8 @@ import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import styled from "styled-components";
+import useSelectedContent from "../pages/context/context";
+import { myInformation } from "../utls/myInfotmation";
 
 const CustomMenuItem = styled(MenuItem)`
   && {
@@ -19,12 +21,31 @@ const ResumeButton = styled(MenuItem)`
 `;
 
 const DropDownMenu = () => {
+  const { updateSelectedContent } = useSelectedContent();
   return (
     <MenuList dense>
-      <CustomMenuItem component={Link} to="/frontend-development">
+      <CustomMenuItem
+        onClick={() =>
+          updateSelectedContent(
+            myInformation.frontend.title,
+            myInformation.frontend.description,
+            myInformation.frontend.image,
+            myInformation.frontend.id
+          )
+        }
+      >
         <ListItemText>Frontend Development</ListItemText>
       </CustomMenuItem>
-      <CustomMenuItem component={Link} to="/music-production">
+      <CustomMenuItem
+        onClick={() =>
+          updateSelectedContent(
+            myInformation.music.title,
+            myInformation.music.description,
+            myInformation.music.image,
+            myInformation.music.id
+          )
+        }
+      >
         <ListItemText>Music Production</ListItemText>
       </CustomMenuItem>
       <CustomMenuItem component={Link} to="/contact-me">

@@ -5,6 +5,7 @@ export const myInformation = {
     description: `Frontend Web Developer skilled in HTML, CSS, JavaScript, and React.js, 
     transitioning from music production to web development. Eager to apply technical 
     skills and creativity to craft engaging user experiences. Passionate about learning and growing professionally. Keen to contribute effectively to projects and achieve shared goals.`,
+    image: `${process.env.PUBLIC_URL}/assets/frontend-img.png`,
   },
   music: {
     id: 2,
@@ -15,5 +16,6 @@ skill set to every project. Proficient in playing various instruments and adept 
 soundscapes across diverse genres, I excel in blending traditional and contemporary elements to create 
 evocative compositions. With a commitment to excellence in mixing and mastering, I am dedicated to pushing 
 creative boundaries and delivering memorable music that resonates with audiences.`,
+    image: `${process.env.PUBLIC_URL}/assets/music-img.png`,
   },
 };

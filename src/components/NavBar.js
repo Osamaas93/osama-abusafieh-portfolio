@@ -1,6 +1,8 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useSelectedContent from "../pages/context/context";
+import { myInformation } from "../utls/myInfotmation";
 
 const CustomButton = styled(Button)`
   && {
@@ -19,12 +21,35 @@ const ResumeButton = styled(Button)`
 `;
 
 const NavBar = () => {
+  const { updateSelectedContent } = useSelectedContent();
   return (
     <ButtonGroup variant="text" aria-label="button group">
-      <CustomButton component={Link} to="/frontend-development">
+      <CustomButton
+        component={Link}
+        to="/"
+        onClick={() =>
+          updateSelectedContent(
+            myInformation.frontend.title,
+            myInformation.frontend.description,
+            myInformation.frontend.image,
+            myInformation.frontend.id
+          )
+        }
+      >
         Frontend Development
       </CustomButton>
-      <CustomButton component={Link} to="/music-production">
+      <CustomButton
+        component={Link}
+        to="/"
+        onClick={() =>
+          updateSelectedContent(
+            myInformation.music.title,
+            myInformation.music.description,
+            myInformation.music.image,
+            myInformation.music.id
+          )
+        }
+      >
         Music Production
       </CustomButton>
       <CustomButton component={Link} to="/contact-me">

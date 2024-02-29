@@ -20,12 +20,19 @@ code {
 }
 
 :root{
-  --brandPrimary: #0768AC;
+/*   --brandPrimary: #0768AC;
   --brandSecondary: #03C180;
   --bgDefault: #1A1A1A;
   --bgBody: #282828;
   --linesColor: #000000;
   --bodyText: #EDEDED;
-  --heartColor: #DC143C;
-  
+  --heartColor: #DC143C; */
+  --bgBody: #312121;
+  --bodyText: #f5efed;
+  --brandPrimary:#bdbf09 ;
+  --brandSecondary: #2292a4;
+  --bgDefault: #1A1A1A;
+
 }
+
+/* {"Smoky black":"#0f0a0a","Isabelline":"#f5efed","Blue (Munsell)":"#2292a4","Citrine":"#bdbf09","Cocoa Brown":"#d96c06"} */

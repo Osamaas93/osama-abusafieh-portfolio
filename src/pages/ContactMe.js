@@ -24,17 +24,14 @@ const CustomTextField = styled(TextField)`
       color: white;
     }
     .MuiOutlinedInput-root {
-      /* For border color */
       fieldset {
         border-color: white;
       }
       &:hover fieldset {
-        border-color: var(--brandPrimary); /* Change border color on hover */
+        border-color: var(--brandPrimary);
       }
       &.Mui-focused fieldset {
-        border-color: var(
-          --brandPrimary
-        ); /* Change border color when focused */
+        border-color: var(--brandPrimary);
       }
     }
   }
@@ -87,7 +84,7 @@ const ContactMe = () => {
       <Container maxWidth="xs">
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
