@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import FrontendDevelopment from "./pages/SummaryPage";
 import ContactMe from "./pages/ContactMe";
-import MusicExperience from "./pages/Experience";
 import { SelectedContentProvider } from "./pages/context/context";
+import Experience from "./pages/Experience";
+import Portfolio from "./pages/Portfolio";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
               element={<FrontendDevelopment />}
             />
             <Route path="contact-me" element={<ContactMe />} />
-            <Route path="music-experience" element={<MusicExperience />} />
+            <Route path="experience/:id" element={<Experience />} />
+            <Route path="portfolio/:id" element={<Portfolio />} />
           </Route>
         </Routes>
       </Router>

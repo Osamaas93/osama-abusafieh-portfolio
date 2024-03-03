@@ -1,6 +1,6 @@
 export const myInformation = {
   frontend: {
-    id: 1,
+    id: "frontend",
     title: "Frontend Web Developer",
     description: `Frontend Web Developer skilled in HTML, CSS, JavaScript, and React.js, 
     transitioning from music production to web development. Eager to apply technical 
@@ -8,7 +8,7 @@ export const myInformation = {
     image: `${process.env.PUBLIC_URL}/assets/frontend-img.png`,
   },
   music: {
-    id: 2,
+    id: "music",
     title: "Music Producer",
     description: `
 With seven years of experience in music composition, mixing, and mastering, I bring a versatile 

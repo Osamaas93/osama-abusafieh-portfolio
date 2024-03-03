@@ -2,10 +2,31 @@ import React from "react";
 import { Box, Button, Container, Grid } from "@mui/material";
 import styled from "styled-components";
 import useSelectedContent from "./context/context";
+import { Link } from "react-router-dom";
 
 const CustomGrid = styled.div`
   @media (max-width: 700px) {
     text-align: center;
+  }
+`;
+
+const TitleText = styled.h2`
+  font-size: 2rem;
+  color: var(--brandSecondary);
+  font-weight: 700;
+  text-align: left;
+  @media (max-width: 1000px) {
+    font-size: 1.7rem;
+  }
+`;
+
+const DescriptionText = styled.h4`
+  font-size: 1.2rem;
+  color: var(--bodyText);
+  font-weight: 500;
+  text-align: left;
+  @media (max-width: 1000px) {
+    font-size: 1rem;
   }
 `;
 
@@ -18,7 +39,7 @@ const FrontendDevelopment = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "calc(100vh - 64px - 64px)", // Adjust according to your header and footer height
+        minHeight: "calc(100vh - 64px - 64px)",
       }}
     >
       <Container>
@@ -59,47 +80,35 @@ const FrontendDevelopment = () => {
             >
               <Grid item>
                 <CustomGrid>
-                  <h2
-                    style={{
-                      fontSize: "2rem",
-                      color: "var(--brandSecondary)",
-                      fontWeight: 700,
-                    }}
-                  >
-                    {selectedContent.title}
-                  </h2>
-                  <h4
-                    style={{
-                      fontSize: "1.2rem",
-                      color: "var(--bodyText)",
-                      fontWeight: 500,
-                    }}
-                  >
+                  <TitleText>{selectedContent.title}</TitleText>
+                  <DescriptionText>
                     {selectedContent.description}
-                  </h4>
+                  </DescriptionText>
 
                   <Button
+                    component={Link}
+                    to={`/experience/${selectedContent.id}`}
                     variant="contained"
                     sx={{
                       mt: 3,
                       mb: 2,
                       mr: 3,
                       background: "#d96c06",
-                      "&:focus": { backgroundColor: "#bdbf09" },
+                      "&:hover": { backgroundColor: "#bdbf09" },
                     }}
-                    id={selectedContent.id}
                   >
                     Experience
                   </Button>
                   <Button
+                    component={Link}
+                    to={`/portfolio/${selectedContent.id}`}
                     variant="contained"
                     sx={{
                       mt: 3,
                       mb: 2,
                       background: "#d96c06",
-                      "&:focus": { backgroundColor: "#bdbf09" },
+                      "&:hover": { backgroundColor: "#bdbf09" },
                     }}
-                    id={selectedContent.id}
                   >
                     Portfolio
                   </Button>

@@ -5,6 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import styled from "styled-components";
 import useSelectedContent from "../pages/context/context";
 import { myInformation } from "../utls/myInfotmation";
+import { Divider } from "@mui/material";
 
 const CustomMenuItem = styled(MenuItem)`
   && {
@@ -38,6 +39,7 @@ const DropDownMenu = () => {
       >
         <ListItemText>Frontend Development</ListItemText>
       </CustomMenuItem>
+      <Divider sx={{ bgcolor: "gray" }} />
       <CustomMenuItem
         component={Link}
         to="/"
@@ -52,9 +54,11 @@ const DropDownMenu = () => {
       >
         <ListItemText>Music Production</ListItemText>
       </CustomMenuItem>
+      <Divider sx={{ bgcolor: "gray" }} />
       <CustomMenuItem component={Link} to="/contact-me">
         <ListItemText>Contact Me</ListItemText>
       </CustomMenuItem>
+      <Divider sx={{ bgcolor: "gray" }} />
       <ResumeButton
         component="a"
         href="https://drive.google.com/file/d/1_Zqm_A46HNvBCaIsFt2CXGMKRJrKhNro/view?usp=sharing"
