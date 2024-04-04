@@ -3,6 +3,7 @@ import { Box, Button, Container, Grid } from "@mui/material";
 import styled from "styled-components";
 import useSelectedContent from "./context/context";
 import { Link } from "react-router-dom";
+import FechData from "../components/FechData";
 
 const CustomGrid = styled.div`
   @media (max-width: 700px) {
