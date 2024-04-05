@@ -33,7 +33,7 @@ const CustomIconButton = styled(IconButton)`
     color: var(--brandPrimary);
     font-weight: 600;
     margin-bottom: ${(props) => (props.$gutterBottom ? "8px" : "0")};
-    padding: 0; /* Set padding of the IconButton to 0 */
+    padding: 0;
   }
 `;
 
