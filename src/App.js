@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import FrontendDevelopment from "./pages/SummaryPage";
 import ContactMe from "./pages/ContactMe";
@@ -19,38 +19,33 @@ import About from "./pages/About";
 function App() {
   return (
     <SelectedContentProvider>
-      <Router basename="osama-abusafieh-portfolio">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="frontend" element={<FrontendArea />} />
-            <Route path="frontend/experience" element={<FrontendExperience />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="frontend" element={<FrontendArea />} />
+          <Route path="frontend/experience" element={<FrontendExperience />} />
 
-            <Route path="music" element={<MusicArea />} />
-            <Route path="music/portfolio" element={<MusicPortfolio />} />
-            <Route path="music/experience" element={<MusicExperience />} />
+          <Route path="music" element={<MusicArea />} />
+          <Route path="music/portfolio" element={<MusicPortfolio />} />
+          <Route path="music/experience" element={<MusicExperience />} />
 
-            <Route
-              path="frontend-development"
-              element={<FrontendDevelopment />}
-            />
-            <Route path="contact-me" element={<ContactMe />} />
-            <Route path="experience/:id" element={<Experience />} />
-            <Route path="portfolio" element={<MusicPortfolio />} />
-            <Route path="portfolio/:id" element={<Portfolio />} />
-            <Route path="admin" element={<AdminLogin />} />
-            <Route
-              path="admin/panel"
-              element={
-                <AdminRoute>
-                  <Admin />
-                </AdminRoute>
-              }
-            />
-          </Route>
-        </Routes>
-      </Router>
+          <Route path="frontend-development" element={<FrontendDevelopment />} />
+          <Route path="contact-me" element={<ContactMe />} />
+          <Route path="experience/:id" element={<Experience />} />
+          <Route path="portfolio" element={<MusicPortfolio />} />
+          <Route path="portfolio/:id" element={<Portfolio />} />
+          <Route path="admin" element={<AdminLogin />} />
+          <Route
+            path="admin/panel"
+            element={
+              <AdminRoute>
+                <Admin />
+              </AdminRoute>
+            }
+          />
+        </Route>
+      </Routes>
     </SelectedContentProvider>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Alert,
   Box,
@@ -43,6 +44,7 @@ import { setAdminAuthed } from "../utils/adminAuth";
  * - The route guard (`AdminRoute`) is only UX; it is not security.
  */
 export default function Admin() {
+  const navigate = useNavigate();
   const { items, refresh } = usePortfolioItems();
   const [editing, setEditing] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -145,7 +147,7 @@ export default function Admin() {
               color="inherit"
               onClick={() => {
                 setAdminAuthed(false);
-                window.location.assign(`${window.location.origin}${window.location.pathname}#/admin`);
+                navigate("/admin", { replace: true });
               }}
             >
               Logout

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import PageSection from "../components/ui/PageSection";
 import GlassCard from "../components/ui/GlassCard";
@@ -59,10 +60,10 @@ export default function About() {
           </Box>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
-            <Button variant="outlined" href="/osama-abusafieh-portfolio/" component="a">
+            <Button variant="outlined" component={Link} to="/">
               Back to Home
             </Button>
-            <Button variant="contained" href="/osama-abusafieh-portfolio/contact-me" component="a">
+            <Button variant="contained" component={Link} to="/contact-me">
               Contact me
             </Button>
           </Stack>
