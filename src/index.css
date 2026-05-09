@@ -1,38 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* Global base */
+html,
+body,
+#root {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  background-color: var(--bgBody);
-  color : var(--bodyText);
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(0, 229, 255, 0.20), transparent 60%),
+    radial-gradient(1000px 700px at 90% 0%, rgba(167, 139, 250, 0.18), transparent 55%),
+    radial-gradient(900px 700px at 60% 110%, rgba(245, 158, 11, 0.12), transparent 60%),
+    var(--bgBody);
+  color: var(--bodyText);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-*{
-  box-sizing: border-box ;
-  font-family: 'Poppins', sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
   margin: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-:root{
-/*   --brandPrimary: #0768AC;
-  --brandSecondary: #03C180;
-  --bgDefault: #1A1A1A;
-  --bgBody: #282828;
-  --linesColor: #000000;
-  --bodyText: #EDEDED;
-  --heartColor: #DC143C; */
-  --bgBody: #231F20;
-  --bodyText: #f5efed;
-  --brandPrimary:#f5efed ;
-  --brandSecondary: #2292a4;
-  --bgDefault: #1A1A1A;
+/* Design tokens (used by styled-components + inline sx) */
+:root {
+  --bgBody: #070A12;
+  --bgDefault: #0B1220;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface2: rgba(255, 255, 255, 0.06);
+  --stroke: rgba(255, 255, 255, 0.10);
 
+  --brandPrimary: #EEF3FF;
+  --bodyText: rgba(238, 243, 255, 0.86);
+  --mutedText: rgba(238, 243, 255, 0.70);
+
+  --brandSecondary: #00E5FF; /* neon cyan */
+  --accentPurple: #8B5CF6;
+  --accentAmber: #F59E0B;
 }
 
-/* {"Smoky black":"#0f0a0a","Isabelline":"#f5efed","Blue (Munsell)":"#2292a4","Citrine":"#bdbf09","Cocoa Brown":"#d96c06"} */
+a {
+  color: inherit;
+}
+

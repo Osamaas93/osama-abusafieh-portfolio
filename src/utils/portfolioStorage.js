@@ -1,12 +1,21 @@
 import { defaultPortfolioItems } from "../data/defaultPortfolio";
 
 export const PORTFOLIO_STORAGE_KEY = "osama_portfolio_items_v1";
+export const PORTFOLIO_UPDATED_EVENT = "portfolio:updated";
 
 function safeJsonParse(value, fallback) {
   try {
     return JSON.parse(value);
   } catch {
     return fallback;
+  }
+}
+
+function notifyUpdated() {
+  try {
+    window.dispatchEvent(new Event(PORTFOLIO_UPDATED_EVENT));
+  } catch {
+    // ignore
   }
 }
 
@@ -51,6 +60,7 @@ export function loadPortfolioItems() {
 
 export function savePortfolioItems(items) {
   localStorage.setItem(PORTFOLIO_STORAGE_KEY, JSON.stringify(items));
+  notifyUpdated();
 }
 
 export function upsertPortfolioItem(item) {

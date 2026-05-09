@@ -65,10 +65,11 @@ const SkillListItem = styled.div`
   white-space: nowrap;
 `;
 
-const Experience = () => {
+const Experience = ({ forcedId }) => {
   let data;
   const { id } = useParams();
-  if (id === "frontend") {
+  const resolvedId = forcedId || id;
+  if (resolvedId === "frontend") {
     data = myExperience.frontend;
   } else {
     data = myExperience.music;

@@ -5,6 +5,12 @@ const CustomButton = styled(Button)`
   && {
     color: var(--brandPrimary);
     font-weight: 600;
+    opacity: 0.9;
+    transition: transform 120ms ease, opacity 120ms ease;
+    &:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
   }
 `;
 
@@ -17,14 +23,16 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
   display: flex;
-  aligh-items: center;
+  align-items: center;
   justify-content: center;
 
   color: var(--bodyText);
-  z-index: 0;
+  z-index: 10;
   width: 100%;
-  padding: 5px 0;
-  background: var(--bgDefault);
+  padding: 16px 0;
+  background: rgba(11, 18, 32, 0.75);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 `;
 
 const Footer = () => {
@@ -34,13 +42,20 @@ const Footer = () => {
         <CustomButton
           component="a"
           href="https://www.linkedin.com/in/osamaabusafieh/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <CustomImg
             src={`${process.env.PUBLIC_URL}/assets/linkedin.png`}
             alt="LinkedIn Logo"
           />
         </CustomButton>
-        <CustomButton component="a" href="https://www.instagram.com/osamaas93/">
+        <CustomButton
+          component="a"
+          href="https://www.instagram.com/osamaas93/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <CustomImg
             src={`${process.env.PUBLIC_URL}/assets/instagram.png`}
             alt="Instagram Logo"
@@ -50,6 +65,8 @@ const Footer = () => {
         <CustomButton
           component="a"
           href="https://www.youtube.com/@Osamaabusafieh?si=Xp8fo8obNZ1JWWse"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <CustomImg
             src={`${process.env.PUBLIC_URL}/assets/youtube.png`}

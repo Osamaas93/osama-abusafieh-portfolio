@@ -8,6 +8,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import EmailIcon from "@mui/icons-material/Email";
 import TextField from "@mui/material/TextField";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import PhoneIcon from "@mui/icons-material/Phone";
+import { Divider, Stack } from "@mui/material";
 
 const CustomContainer = styled.div`
   padding-block: 50px;
@@ -39,6 +42,13 @@ const CustomTextField = styled(TextField)`
 
 const ContactMe = () => {
   const form = useRef();
+  const uaePhoneWhatsapp = "+971501791162";
+  const palestineWhatsapp = "+970598115747";
+
+  const toWhatsAppLink = (phoneNumber) => {
+    const digits = String(phoneNumber || "").replace(/[^\d]/g, "");
+    return `https://wa.me/${digits}`;
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -140,6 +150,49 @@ const ContactMe = () => {
             >
               Send
             </Button>
+
+            <Divider sx={{ my: 2, borderColor: "rgba(255,255,255,0.12)" }} />
+
+            <Typography variant="subtitle1" sx={{ color: "var(--brandPrimary)", fontWeight: 800 }}>
+              Or connect on WhatsApp
+            </Typography>
+
+            <Stack spacing={1} sx={{ mt: 1 }}>
+              <Button
+                fullWidth
+                variant="outlined"
+                startIcon={<WhatsAppIcon />}
+                component="a"
+                href={toWhatsAppLink(uaePhoneWhatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ justifyContent: "flex-start" }}
+              >
+                WhatsApp: {uaePhoneWhatsapp}
+              </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                startIcon={<WhatsAppIcon />}
+                component="a"
+                href={toWhatsAppLink(palestineWhatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ justifyContent: "flex-start" }}
+              >
+                WhatsApp: {palestineWhatsapp}
+              </Button>
+              <Button
+                fullWidth
+                variant="text"
+                startIcon={<PhoneIcon />}
+                component="a"
+                href={`tel:${uaePhoneWhatsapp}`}
+                sx={{ justifyContent: "flex-start", color: "var(--mutedText)" }}
+              >
+                Call: {uaePhoneWhatsapp}
+              </Button>
+            </Stack>
           </Box>
         </Box>
       </Container>
