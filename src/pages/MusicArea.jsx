@@ -1,12 +1,15 @@
 import React, { useMemo, useState } from "react";
-import { Box, Button, Chip, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Chip, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import usePortfolioItems from "../hooks/usePortfolioItems";
 import PortfolioCard from "../components/PortfolioCard";
+import PageSection from "../components/ui/PageSection";
+import SectionHeader from "../components/ui/SectionHeader";
 
 export default function MusicArea() {
   const { items } = usePortfolioItems();
   const [filter, setFilter] = useState("All"); // All | YouTube | SoundCloud
+  const [sort, setSort] = useState("featured"); // featured | newest
 
   const musicItems = useMemo(() => {
     return items.filter(
@@ -18,22 +21,25 @@ export default function MusicArea() {
   }, [items]);
 
   const filtered = useMemo(() => {
-    if (filter === "All") return musicItems;
-    return musicItems.filter((x) => x.mediaType === filter);
-  }, [musicItems, filter]);
+    const byType = filter === "All" ? musicItems : musicItems.filter((x) => x.mediaType === filter);
+    const sorted = [...byType].sort((a, b) => {
+      if (sort === "featured") {
+        if (a.featured !== b.featured) return a.featured ? -1 : 1;
+      }
+      return (b.updatedAt || "").localeCompare(a.updatedAt || "");
+    });
+    return sorted;
+  }, [musicItems, filter, sort]);
 
   return (
-    <Box sx={{ py: 6, minHeight: "calc(100vh - 64px - 64px)" }}>
-      <Container>
-        <Stack spacing={2}>
-          <Box>
-            <Typography variant="h4" sx={{ color: "var(--brandPrimary)", fontWeight: 900 }}>
-              Music Production / Audio
-            </Typography>
-            <Typography sx={{ color: "var(--mutedText)", maxWidth: 760 }}>
-              Composition, mixing/mastering, sound design, live events, and AV production work.
-            </Typography>
-          </Box>
+    <Box sx={{ minHeight: "calc(100vh - 64px - 64px)" }}>
+      <PageSection>
+        <Stack spacing={3}>
+          <SectionHeader
+            eyebrow="Music Production"
+            title="Music / Audio"
+            subtitle="Composition, mixing/mastering, sound design, and production work."
+          />
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
             <Button component={Link} to="/music/experience" variant="contained">
@@ -41,7 +47,7 @@ export default function MusicArea() {
             </Button>
           </Stack>
 
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{ mt: 1 }}>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={1}
@@ -49,25 +55,45 @@ export default function MusicArea() {
               justifyContent="space-between"
               sx={{ mb: 1 }}
             >
-              <Typography sx={{ color: "var(--brandPrimary)", fontWeight: 800, mb: 1 }}>
-                Featured work
-              </Typography>
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                {["All", "YouTube", "SoundCloud"].map((t) => (
-                  <Chip
-                    key={t}
-                    clickable
-                    label={t}
-                    onClick={() => setFilter(t)}
-                    sx={{
-                      color: "var(--brandPrimary)",
-                      bgcolor:
-                        filter === t ? "rgba(139,92,246,0.18)" : "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.10)",
-                      "&:hover": { bgcolor: "rgba(139,92,246,0.14)" },
-                    }}
-                  />
-                ))}
+              <Box sx={{ minWidth: 0 }}>
+                <Typography sx={{ color: "var(--brandPrimary)", fontWeight: 900 }}>
+                  Featured work
+                </Typography>
+                <Typography sx={{ color: "var(--mutedText)", fontSize: 13 }}>
+                  {filtered.length} item{filtered.length === 1 ? "" : "s"}
+                </Typography>
+              </Box>
+
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1} alignItems="center">
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                  {["All", "YouTube", "SoundCloud"].map((t) => (
+                    <Chip
+                      key={t}
+                      clickable
+                      label={t}
+                      onClick={() => setFilter(t)}
+                      sx={{
+                        color: "var(--brandPrimary)",
+                        bgcolor:
+                          filter === t ? "rgba(139,92,246,0.18)" : "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(255,255,255,0.10)",
+                        "&:hover": { bgcolor: "rgba(139,92,246,0.14)" },
+                      }}
+                    />
+                  ))}
+                </Stack>
+
+                <TextField
+                  select
+                  size="small"
+                  label="Sort"
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value)}
+                  sx={{ minWidth: 150 }}
+                >
+                  <MenuItem value="featured">Featured first</MenuItem>
+                  <MenuItem value="newest">Newest first</MenuItem>
+                </TextField>
               </Stack>
             </Stack>
 
@@ -99,7 +125,7 @@ export default function MusicArea() {
             )}
           </Box>
         </Stack>
-      </Container>
+      </PageSection>
     </Box>
   );
 }

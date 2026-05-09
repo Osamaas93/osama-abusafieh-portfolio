@@ -12,6 +12,23 @@ import {
 import LockIcon from "@mui/icons-material/Lock";
 import { getAdminPassword, setAdminAuthed, setAdminPassword } from "../utils/adminAuth";
 
+/**
+ * Admin login screen.
+ *
+ * Current implementation:
+ * - Frontend-only password stored in localStorage (NOT secure).
+ *
+ * How to upgrade to real auth later:
+ * - Replace `getAdminPassword/setAdminPassword` usage with a backend call:
+ *   - POST /api/auth/login { username/email, password }
+ *   - Backend validates password (bcrypt/argon2) and creates a session.
+ *   - Prefer HttpOnly secure cookies for sessions (works well for web apps).
+ * - On success, navigate to `/admin/panel`.
+ * - Add a "Logout" action that calls POST /api/auth/logout.
+ *
+ * Then, replace `AdminRoute` to check auth state from the backend
+ * (e.g. GET /api/auth/me) rather than localStorage.
+ */
 export default function AdminLogin() {
   const navigate = useNavigate();
   const location = useLocation();

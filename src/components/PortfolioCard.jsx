@@ -16,8 +16,13 @@ export default function PortfolioCard({ item, onEdit, onDelete, showActions = fa
         borderRadius: 3,
         border: "1px solid rgba(255,255,255,0.08)",
         background:
-          "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+          "linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02))",
         backdropFilter: "blur(10px)",
+        transition: "transform 140ms ease, border-color 140ms ease",
+        "&:hover": {
+          transform: "translateY(-3px)",
+          borderColor: "rgba(255,255,255,0.16)",
+        },
       }}
     >
       <Box sx={{ p: 2 }}>

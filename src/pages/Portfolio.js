@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Box, Button, Chip, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Chip, Stack, Typography } from "@mui/material";
 import usePortfolioItems from "../hooks/usePortfolioItems";
 import PortfolioCard from "../components/PortfolioCard";
+import PageSection from "../components/ui/PageSection";
+import SectionHeader from "../components/ui/SectionHeader";
 
 const filterFromLegacyParam = (id) => {
   if (id === "frontend") return "Front-End Development";
@@ -36,17 +38,14 @@ const Portfolio = ({ initialCategory = "All", lockCategory = false }) => {
   }, [items, activeCategory]);
 
   return (
-    <Box sx={{ py: 6, minHeight: "calc(100vh - 64px - 64px)" }}>
-      <Container>
-        <Stack spacing={2}>
-          <Box>
-            <Typography variant="h4" sx={{ color: "var(--brandPrimary)", fontWeight: 800 }}>
-              Portfolio
-            </Typography>
-            <Typography sx={{ color: "var(--bodyText)", opacity: 0.8 }}>
-              Filter by category, open embeds, and explore projects across both paths.
-            </Typography>
-          </Box>
+    <Box sx={{ minHeight: "calc(100vh - 64px - 64px)" }}>
+      <PageSection>
+        <Stack spacing={3}>
+          <SectionHeader
+            eyebrow="Portfolio"
+            title="Work"
+            subtitle="Filter by category, open embeds, and explore projects."
+          />
 
           {!lockCategory && (
             <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
@@ -100,7 +99,7 @@ const Portfolio = ({ initialCategory = "All", lockCategory = false }) => {
             </Box>
           )}
         </Stack>
-      </Container>
+      </PageSection>
     </Box>
   );
 };

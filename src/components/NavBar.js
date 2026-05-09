@@ -6,15 +6,25 @@ const CustomButton = styled(Button)`
   && {
     position: relative;
     color: var(--brandPrimary);
-    font-weight: 600;
+    font-weight: 750;
     margin-bottom: ${(props) => (props.$gutterBottom ? "8px" : "0")};
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.06);
+    }
   }
 `;
 
 const ResumeButton = styled(Button)`
   && {
     color: var(--brandSecondary);
-    font-weight: 600;
+    font-weight: 850;
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    background: rgba(0, 229, 255, 0.08);
+    &:hover {
+      background: rgba(0, 229, 255, 0.14);
+    }
   }
 `;
 

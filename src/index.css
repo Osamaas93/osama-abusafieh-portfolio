@@ -9,14 +9,26 @@ body,
 
 body {
   margin: 0;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(0, 229, 255, 0.20), transparent 60%),
-    radial-gradient(1000px 700px at 90% 0%, rgba(167, 139, 250, 0.18), transparent 55%),
-    radial-gradient(900px 700px at 60% 110%, rgba(245, 158, 11, 0.12), transparent 60%),
-    var(--bgBody);
+  background-color: var(--bgBody);
   color: var(--bodyText);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Seamless "one-piece" background layer (no tiling) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(0, 229, 255, 0.18), transparent 65%),
+    radial-gradient(820px 520px at 92% 5%, rgba(139, 92, 246, 0.16), transparent 62%),
+    radial-gradient(760px 560px at 55% 110%, rgba(245, 158, 11, 0.10), transparent 64%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 35%),
+    var(--bgBody);
+  background-repeat: no-repeat;
 }
 
 * {

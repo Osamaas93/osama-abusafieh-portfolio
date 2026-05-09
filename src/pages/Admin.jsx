@@ -24,6 +24,24 @@ import {
 } from "../utils/portfolioStorage";
 import { setAdminAuthed } from "../utils/adminAuth";
 
+/**
+ * Admin panel (content editor).
+ *
+ * Current storage:
+ * - localStorage via `portfolioStorage.js`
+ *
+ * Backend upgrade path:
+ * - Replace portfolioStorage calls with API calls (and keep the same UI):
+ *   - GET    /api/portfolio-items
+ *   - POST   /api/portfolio-items
+ *   - PUT    /api/portfolio-items/:id
+ *   - DELETE /api/portfolio-items/:id
+ * - Keep the same item shape (id/title/category/related/mediaType/mediaUrl/etc.) to minimize UI changes.
+ *
+ * Security note:
+ * - The backend must enforce auth/authorization on these endpoints.
+ * - The route guard (`AdminRoute`) is only UX; it is not security.
+ */
 export default function Admin() {
   const { items, refresh } = usePortfolioItems();
   const [editing, setEditing] = useState(null);

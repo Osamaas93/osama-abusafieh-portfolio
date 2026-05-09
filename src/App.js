@@ -14,6 +14,7 @@ import MusicArea from "./pages/MusicArea";
 import MusicPortfolio from "./pages/MusicPortfolio";
 import FrontendExperience from "./pages/FrontendExperience";
 import MusicExperience from "./pages/MusicExperience";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
             <Route path="frontend" element={<FrontendArea />} />
             <Route path="frontend/experience" element={<FrontendExperience />} />
 

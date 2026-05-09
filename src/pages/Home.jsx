@@ -1,17 +1,19 @@
 import React from "react";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import PageSection from "../components/ui/PageSection";
+import GlassCard from "../components/ui/GlassCard";
 
 function ChoiceCard({ title, description, to, accent, imageSrc, imageAlt }) {
   return (
-    <Box
+    <GlassCard
       sx={{
         p: { xs: 2.5, md: 3 },
-        borderRadius: 4,
-        border: "1px solid var(--stroke)",
-        background:
-          "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
-        boxShadow: "0 20px 70px rgba(0,0,0,0.45)",
+        transition: "transform 140ms ease, border-color 140ms ease, background 140ms ease",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          borderColor: "rgba(255,255,255,0.20)",
+        },
       }}
     >
       {imageSrc && (
@@ -24,8 +26,17 @@ function ChoiceCard({ title, description, to, accent, imageSrc, imageAlt }) {
             border: "1px solid rgba(255,255,255,0.12)",
             background: "rgba(255,255,255,0.04)",
             mb: 2,
+            position: "relative",
           }}
         >
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.55))`,
+              pointerEvents: "none",
+            }}
+          />
           <Box
             component="img"
             src={imageSrc}
@@ -53,15 +64,20 @@ function ChoiceCard({ title, description, to, accent, imageSrc, imageAlt }) {
       >
         Enter
       </Button>
-    </Box>
+    </GlassCard>
   );
 }
 
 export default function Home() {
   return (
-    <Box sx={{ py: { xs: 6, md: 9 }, minHeight: "calc(100vh - 64px - 64px)" }}>
-      <Container>
-        <Stack spacing={4}>
+    <Box sx={{ minHeight: "calc(100vh - 64px - 64px)" }}>
+      <PageSection
+        sx={{
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 4, md: 7 },
+        }}
+      >
+        <Stack spacing={4.5}>
           <Box>
             <Typography
               variant="h2"
@@ -78,6 +94,25 @@ export default function Home() {
               One personal brand with two professional paths: Music Production and Software
               Engineering. Choose where you want to explore.
             </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.2} sx={{ mt: 2.5 }}>
+              <Button
+                component={Link}
+                to="/portfolio"
+                variant="outlined"
+                sx={{
+                  borderColor: "rgba(255,255,255,0.16)",
+                  "&:hover": { borderColor: "rgba(255,255,255,0.28)" },
+                }}
+              >
+                Explore music portfolio
+              </Button>
+              <Button component={Link} to="/about" variant="text" sx={{ color: "var(--brandPrimary)" }}>
+                About
+              </Button>
+              <Button component={Link} to="/contact-me" variant="text" sx={{ color: "var(--brandPrimary)" }}>
+                Contact
+              </Button>
+            </Stack>
           </Box>
 
           <Box
@@ -104,17 +139,8 @@ export default function Home() {
               imageAlt="Software Engineering"
             />
           </Box>
-
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
-            <Button component={Link} to="/portfolio" variant="outlined">
-              View all portfolio
-            </Button>
-            <Button component={Link} to="/contact-me" variant="text">
-              Contact
-            </Button>
-          </Stack>
         </Stack>
-      </Container>
+      </PageSection>
     </Box>
   );
 }

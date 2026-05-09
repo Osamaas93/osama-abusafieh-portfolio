@@ -48,12 +48,16 @@ const CustomImg = styled.img`
 `;
 
 const HeaderContainer = styled.div`
+  position: sticky;
+  top: 0;
   color: var(--bodyText);
-  z-index: 0;
+  z-index: 20;
   width: 100%;
   margin: 0;
-  padding: 8px;
-  background: var(--bgDefault);
+  padding: 10px 8px;
+  background: rgba(11, 18, 32, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 `;
 
 const Header = () => {
@@ -74,11 +78,11 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Stack direction="row" justifyContent="center">
+      <Stack direction="row" justifyContent="center" alignItems="center" sx={{ gap: 1 }}>
         <CustomImgLink to="/">
           <CustomImg
             src={`${process.env.PUBLIC_URL}/assets/html.png`}
-            alt="awd"
+            alt="Home"
           />
         </CustomImgLink>
 

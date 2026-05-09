@@ -1,23 +1,23 @@
 import React from "react";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { myExperience } from "../utls/myExperience";
+import PageSection from "../components/ui/PageSection";
+import GlassCard from "../components/ui/GlassCard";
+import SectionHeader from "../components/ui/SectionHeader";
 
 export default function FrontendArea() {
   const githubUrl = "https://github.com/Osamaas93";
   const data = myExperience.frontend;
 
   return (
-    <Box sx={{ py: 6, minHeight: "calc(100vh - 64px - 64px)" }}>
-      <Container>
+    <Box sx={{ minHeight: "calc(100vh - 64px - 64px)" }}>
+      <PageSection>
         <Stack spacing={3}>
-          <Box>
-            <Typography variant="h4" sx={{ color: "var(--brandPrimary)", fontWeight: 900 }}>
-              Front-End Development
-            </Typography>
-            <Typography sx={{ color: "var(--mutedText)", maxWidth: 760 }}>
-              React.js, JavaScript, UI/UX, responsive design, and product-ready interfaces.
-            </Typography>
-          </Box>
+          <SectionHeader
+            eyebrow="Software Engineering"
+            title="Front‑End Development"
+            subtitle="React.js, JavaScript, UI/UX, responsive design, and product-ready interfaces."
+          />
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
             <Button
@@ -31,9 +31,10 @@ export default function FrontendArea() {
                 color: "#05070b",
                 fontWeight: 900,
                 "&:hover": { bgcolor: "var(--brandSecondary)", filter: "brightness(1.05)" },
+                alignSelf: { xs: "stretch", sm: "flex-start" },
               }}
             >
-              GitHub (portfolio)
+              View GitHub
             </Button>
           </Stack>
 
@@ -43,38 +44,37 @@ export default function FrontendArea() {
             </Typography>
             <Stack spacing={1.5}>
               {data.experience.map((exp, idx) => (
-                <Box
-                  key={`${exp.companyName}-${idx}`}
-                  sx={{
-                    p: { xs: 2, md: 2.5 },
-                    borderRadius: 3,
-                    border: "1px solid var(--stroke)",
-                    background:
-                      "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
-                  }}
-                >
+                <GlassCard key={`${exp.companyName}-${idx}`} sx={{ p: { xs: 2, md: 2.5 } }}>
                   <Typography sx={{ color: "var(--brandSecondary)", fontWeight: 900 }}>
                     {exp.jobTitle}
                   </Typography>
-                  <Typography sx={{ color: "var(--brandPrimary)", fontWeight: 700 }}>
+                  <Typography sx={{ color: "var(--brandPrimary)", fontWeight: 750 }}>
                     {exp.companyName}
                   </Typography>
                   <Typography sx={{ color: "var(--mutedText)", mb: 1 }}>
                     {exp.duration}
                   </Typography>
-                  <Box component="ul" sx={{ pl: 2.2, m: 0, color: "var(--bodyText)" }}>
+                  <Box
+                    component="ul"
+                    sx={{
+                      pl: 2.2,
+                      m: 0,
+                      color: "var(--bodyText)",
+                      lineHeight: 1.7,
+                    }}
+                  >
                     {exp.experiences.map((line, lineIdx) => (
-                      <Box component="li" key={lineIdx} sx={{ mb: 0.5, opacity: 0.9 }}>
+                      <Box component="li" key={lineIdx} sx={{ mb: 0.75, opacity: 0.92 }}>
                         {line}
                       </Box>
                     ))}
                   </Box>
-                </Box>
+                </GlassCard>
               ))}
             </Stack>
           </Box>
         </Stack>
-      </Container>
+      </PageSection>
     </Box>
   );
 }
