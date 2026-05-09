@@ -12,13 +12,6 @@ const CustomMenuItem = styled(MenuItem)`
   }
 `;
 
-const ResumeButton = styled(MenuItem)`
-  && {
-    color: var(--brandSecondary);
-    font-weight: 600;
-  }
-`;
-
 const DropDownMenu = () => {
   return (
     <MenuList dense>
@@ -39,15 +32,6 @@ const DropDownMenu = () => {
       <CustomMenuItem component={Link} to="/contact-me">
         <ListItemText>Contact Me</ListItemText>
       </CustomMenuItem>
-      <Divider sx={{ bgcolor: "gray" }} />
-      <ResumeButton
-        component="a"
-        href="https://drive.google.com/file/d/1_Zqm_A46HNvBCaIsFt2CXGMKRJrKhNro/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download Resume
-      </ResumeButton>
     </MenuList>
   );
 };

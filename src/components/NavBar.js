@@ -16,18 +16,6 @@ const CustomButton = styled(Button)`
   }
 `;
 
-const ResumeButton = styled(Button)`
-  && {
-    color: var(--brandSecondary);
-    font-weight: 850;
-    border: 1px solid rgba(0, 229, 255, 0.35);
-    background: rgba(0, 229, 255, 0.08);
-    &:hover {
-      background: rgba(0, 229, 255, 0.14);
-    }
-  }
-`;
-
 const NavBar = () => {
   return (
     <ButtonGroup variant="text" aria-label="button group">
@@ -46,14 +34,6 @@ const NavBar = () => {
       <CustomButton component={Link} to="/contact-me">
         Contact Me
       </CustomButton>
-      <ResumeButton
-        component="a"
-        href="https://drive.google.com/file/d/1_Zqm_A46HNvBCaIsFt2CXGMKRJrKhNro/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download Resume
-      </ResumeButton>
     </ButtonGroup>
   );
 };
